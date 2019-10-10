@@ -1,0 +1,2 @@
+runtime_xdc_noinit.o: \
+ /mnt/tirex-content/xdctools_3_51_02_21_core/packages/xdc/runtime/xdc_noinit.c

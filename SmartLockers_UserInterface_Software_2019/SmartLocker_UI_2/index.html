@@ -1,0 +1,2747 @@
+<!doctype html>
+<!--
+%COPYRIGHTNOTICE%
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+*   Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+*   Neither the name of Texas Instruments Incorporated nor the names of
+its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <link rel="icon" type="image/png" href="splash/gui_icon.png">
+
+    <title>SmartLocker_UI_2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <script src="components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script> if (typeof nw != 'undefined') {window.$ti_nw_main_window = true;} </script>
+    <script src="components/ti-core-assets/scripts/gcDesktop.js"></script>
+    <link rel="import" href="components/ti-core-databind/ti-core-databind.html">
+    
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        design-gist-element-preview {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="sky">
+<div id="loadDiv" style='width:100%; height:100%; z-index: 999999; background-color: #eeeeee; position: absolute;'>
+    <div style="width: 100%; height: 100%; background: url('./images/loading.gif') no-repeat center"></div>
+</div>
+<!-- ------------------------------------------------------------------------------------- -->
+<link rel="import" href="components/ti-widget-readme/ti-widget-readme.html">
+<link rel="import" href="components/ti-core-stylesheets/ti-core-stylesheets.html">
+<link rel="import" href="components/ti-widget-common/ti-widget-vtabcontainer.html">
+<link rel="import" href="components/ti-widget-common/ti-widget-vtab.html">
+<link rel="import" href="components/ti-widget-common/ti-widget-banner.html">
+<link rel="import" href="components/ti-widget-common/ti-widget-container.html">
+<link rel="import" href="components/ti-widget-common/ti-widget-image.html">
+<link rel="import" href="components/ti-widget-common/ti-widget-label.html">
+<link rel="import" href="components/ti-widget-common/ti-widget-button.html">
+<link rel="import" href="components/ti-widget-icon-button/ti-widget-icon-button.html">
+<link rel="import" href="components/ti-widget-common/ti-widget-textbox.html">
+<link rel="import" href="components/ti-core-databind/ti-core-programloader.html">
+<link rel="import" href="components/ti-core-databind/ti-transport-xds.html">
+<link rel="import" href="components/ti-core-databind/ti-model-program.html">
+
+ 
+  <template id="template_obj" is="dom-bind">
+
+<style is="custom-style">
+  html .viewport {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 28px;
+    top: 41px;
+    border: none;
+  }
+  #ti_widget_vtabcontainer {
+    width: 1020px;
+    height: 660px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_vtab {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_container {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    background-color: rgb(7, 105, 219);
+    left: 0px;
+    top: 0px;
+    position: absolute;
+  }
+  #ti_widget_image1 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 40px;
+  }
+  #ti_widget_image2 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_container1 {
+    height: 660px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+  }
+  #ti_widget_image3 {
+    left: 30px;
+    top: 20px;
+    position: absolute;
+    width: 140px;
+    height: 150px;
+  }
+  #ti_widget_label {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 170px;
+    top: 70px;
+    position: absolute;
+  }
+  #ti_widget_label1 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 180px;
+    position: absolute;
+  }
+  #ti_widget_label2 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 240px;
+    position: absolute;
+  }
+  #ti_widget_label3 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 320px;
+    position: absolute;
+  }
+  #ti_widget_label4 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 360px;
+    position: absolute;
+  }
+  #ti_widget_label5 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 400px;
+    position: absolute;
+  }
+  #ti_widget_button {
+    left: 40px;
+    top: 440px;
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    border-radius: 100px;
+    padding: 10px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_container2 {
+    height: 380px;
+    width: 390px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 530px;
+    top: 130px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_button1 {
+    left: 90px;
+    top: 280px;
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: rgb(97, 98, 207);
+  }
+  #ti_widget_image {
+    left: 40px;
+    top: 90px;
+    position: absolute;
+    width: 180px;
+    height: 170px;
+  }
+  #ti_widget_image4 {
+    left: 160px;
+    top: 90px;
+    position: absolute;
+    width: 190px;
+    height: 170px;
+  }
+  #ti_widget_container51 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+  }
+  #ti_widget_container4 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(10, 106, 219);
+  }
+  #ti_widget_image7 {
+    left: 29px;
+    top: 19px;
+    position: absolute;
+    width: 140px;
+    height: 150px;
+  }
+  #ti_widget_container5 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(12, 107, 219);
+  }
+  #ti_widget_label7 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_button2 {
+    left: 90px;
+    top: 280px;
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_container9 {
+    height: 380px;
+    width: 390px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 60px;
+    top: 150px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_button3 {
+    left: 90px;
+    top: 280px;
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: rgb(97, 98, 207);
+  }
+  #ti_widget_container10 {
+    height: 380px;
+    width: 390px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 510px;
+    top: 150px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_image15 {
+    left: 90px;
+    top: 40px;
+    position: absolute;
+    width: 230px;
+    height: 240px;
+  }
+  #ti_widget_image9 {
+    left: 90px;
+    top: 40px;
+    position: absolute;
+    width: 230px;
+    height: 240px;
+  }
+  #ti_widget_image10 {
+    left: 29px;
+    top: 19px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label8 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label9 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 350px;
+    top: 120px;
+    position: absolute;
+  }
+  #ti_widget_container6 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(13, 107, 219);
+  }
+  #ti_widget_image14 {
+    left: 29px;
+    top: 19px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label10 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label11 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 280px;
+    top: 120px;
+    position: absolute;
+  }
+  #ti_widget_vtab2 {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_vtab3 {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_image22 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image23 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image24 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_button9 {
+    left: 650px;
+    top: 200px;
+    position: absolute;
+    width: 280px;
+    height: 300px;
+    background-color: rgb(79, 212, 196);
+    border-radius: 50px;
+    padding: 25px;
+  }
+  #ti_widget_image18 {
+    left: 720px;
+    top: 270px;
+    position: absolute;
+    width: 150px;
+    height: 190px;
+  }
+  #ti_widget_button8 {
+    left: 340px;
+    top: 200px;
+    position: absolute;
+    width: 280px;
+    height: 300px;
+    border-radius: 50px;
+    background-color: rgb(79, 212, 196);
+    padding: 25px;
+  }
+  #ti_widget_image17 {
+    left: 400px;
+    top: 270px;
+    position: absolute;
+    width: 160px;
+    height: 190px;
+  }
+  #ti_widget_button7 {
+    left: 30px;
+    top: 200px;
+    position: absolute;
+    width: 280px;
+    height: 300px;
+    padding: 25px;
+    border-radius: 50px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_image16 {
+    left: 90px;
+    top: 270px;
+    position: absolute;
+    width: 160px;
+    height: 190px;
+  }
+  #ti_widget_button12 {
+    left: 30px;
+    top: 200px;
+    position: absolute;
+    width: 280px;
+    height: 300px;
+    border-radius: 50px;
+    padding: 25px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_button13 {
+    left: 340px;
+    top: 200px;
+    position: absolute;
+    width: 280px;
+    height: 300px;
+    border-radius: 50px;
+    padding: 25px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_button14 {
+    left: 650px;
+    top: 200px;
+    position: absolute;
+    width: 280px;
+    height: 300px;
+    border-radius: 50px;
+    padding: 25px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_image25 {
+    left: 100px;
+    top: 270px;
+    position: absolute;
+    width: 140px;
+    height: 190px;
+  }
+  #ti_widget_image26 {
+    left: 410px;
+    top: 270px;
+    position: absolute;
+    width: 140px;
+    height: 190px;
+  }
+  #ti_widget_image27 {
+    left: 720px;
+    top: 270px;
+    position: absolute;
+    width: 150px;
+    height: 190px;
+  }
+  #ti_widget_vtab4 {
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_image11 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image12 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_image13 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_image28 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_image29 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_vtab6 {
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_button23 {
+    left: 290px;
+    top: 260px;
+    position: absolute;
+    background-color: rgb(79, 212, 196);
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    padding: 12.5px;
+  }
+  #ti_widget_button24 {
+    left: 420px;
+    top: 260px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button25 {
+    left: 550px;
+    top: 260px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button26 {
+    left: 290px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button27 {
+    left: 290px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button28 {
+    left: 420px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button29 {
+    left: 420px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button30 {
+    left: 550px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button31 {
+    left: 550px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button32 {
+    left: 290px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(255, 133, 175);
+    padding: 12.5px;
+  }
+  #ti_widget_textbox4 {
+    left: 310px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    border-radius: 10px;
+  }
+  #ti_widget_textbox5 {
+    font-size: inherit;
+    left: 580px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_textbox6 {
+    font-size: inherit;
+    left: 400px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_textbox7 {
+    font-size: inherit;
+    left: 490px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_button33 {
+    left: 420px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button34 {
+    left: 550px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(0, 255, 0);
+    padding: 12.5px;
+  }
+  #ti_widget_image19 {
+    left: 30px;
+    top: 20px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label12 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label13 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 210px;
+    top: 130px;
+    position: absolute;
+  }
+  #ti_widget_container12 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(13, 107, 219);
+  }
+  #ti_widget_image30 {
+    left: 30px;
+    top: 20px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label16 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label17 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 160px;
+    top: 130px;
+    position: absolute;
+  }
+  #ti_widget_textbox1 {
+    left: 310px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    border-radius: 10px;
+  }
+  #ti_widget_textbox2 {
+    font-size: inherit;
+    left: 400px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_textbox3 {
+    font-size: inherit;
+    left: 490px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_textbox8 {
+    font-size: inherit;
+    left: 580px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_button4 {
+    left: 290px;
+    top: 260px;
+    position: absolute;
+    background-color: rgb(79, 212, 196);
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    padding: 12.5px;
+  }
+  #ti_widget_button5 {
+    left: 420px;
+    top: 260px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button6 {
+    left: 550px;
+    top: 260px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button10 {
+    left: 290px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button15 {
+    left: 420px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button16 {
+    left: 550px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button17 {
+    left: 290px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button18 {
+    left: 290px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(255, 133, 175);
+    padding: 12.5px;
+  }
+  #ti_widget_button19 {
+    left: 420px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button20 {
+    left: 420px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button21 {
+    left: 550px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button22 {
+    left: 550px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(0, 255, 0);
+    padding: 12.5px;
+  }
+  #ti_widget_container11 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(13, 107, 219);
+  }
+  #ti_widget_image31 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image32 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_vtab5 {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_image33 {
+    left: 30px;
+    top: 20px;
+    position: absolute;
+    width: 140px;
+    height: 150px;
+  }
+  #ti_widget_label14 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 170px;
+    top: 70px;
+    position: absolute;
+  }
+  #ti_widget_label15 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 180px;
+    position: absolute;
+  }
+  #ti_widget_label18 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 240px;
+    position: absolute;
+  }
+  #ti_widget_label19 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 320px;
+    position: absolute;
+  }
+  #ti_widget_label20 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 360px;
+    position: absolute;
+  }
+  #ti_widget_label21 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 400px;
+    position: absolute;
+  }
+  #ti_widget_button35 {
+    left: 40px;
+    top: 440px;
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    border-radius: 100px;
+    padding: 10px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_container16 {
+    height: 380px;
+    width: 390px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 530px;
+    top: 130px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_button36 {
+    left: 90px;
+    top: 280px;
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: rgb(97, 98, 207);
+  }
+  #ti_widget_image34 {
+    left: 40px;
+    top: 90px;
+    position: absolute;
+    width: 180px;
+    height: 170px;
+  }
+  #ti_widget_image35 {
+    left: 160px;
+    top: 90px;
+    position: absolute;
+    width: 190px;
+    height: 170px;
+  }
+  #ti_widget_image36 {
+    left: 29px;
+    top: 19px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label22 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label23 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 310px;
+    top: 220px;
+    position: absolute;
+  }
+  #ti_widget_image37 {
+    left: 100px;
+    top: 220px;
+    position: absolute;
+    width: 130px;
+    height: 190px;
+  }
+  #ti_widget_image39 {
+    left: 740px;
+    top: 220px;
+    position: absolute;
+    width: 130px;
+    height: 190px;
+  }
+  #ti_widget_container17 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(12, 107, 219);
+  }
+  #ti_widget_label24 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 260px;
+    top: 330px;
+    position: absolute;
+    width: 460px;
+    height: 40px;
+  }
+  #ti_widget_image5 {
+    left: 30px;
+    top: 20px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label25 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label26 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 180px;
+    top: 130px;
+    position: absolute;
+  }
+  #ti_widget_textbox9 {
+    left: 310px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    border-radius: 10px;
+  }
+  #ti_widget_textbox10 {
+    font-size: inherit;
+    left: 400px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_textbox11 {
+    font-size: inherit;
+    left: 490px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_textbox12 {
+    font-size: inherit;
+    left: 580px;
+    top: 180px;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+  }
+  #ti_widget_button37 {
+    left: 290px;
+    top: 260px;
+    position: absolute;
+    background-color: rgb(79, 212, 196);
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    padding: 12.5px;
+  }
+  #ti_widget_button38 {
+    left: 420px;
+    top: 260px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button39 {
+    left: 550px;
+    top: 260px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button40 {
+    left: 290px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button41 {
+    left: 420px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button42 {
+    left: 550px;
+    top: 340px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button43 {
+    left: 290px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button44 {
+    left: 290px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(255, 133, 175);
+    padding: 12.5px;
+  }
+  #ti_widget_button45 {
+    left: 420px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button46 {
+    left: 420px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button47 {
+    left: 550px;
+    top: 420px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(79, 212, 196);
+    padding: 12.5px;
+  }
+  #ti_widget_button48 {
+    left: 550px;
+    top: 500px;
+    position: absolute;
+    border-radius: 25px;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(0, 255, 0);
+    padding: 12.5px;
+  }
+  #ti_widget_container3 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(13, 107, 219);
+  }
+  #ti_widget_vtab7 {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_image6 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image38 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_image40 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_image41 {
+    left: 29px;
+    top: 19px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label27 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label28 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 240px;
+    top: 240px;
+    position: absolute;
+  }
+  #ti_widget_image42 {
+    left: 100px;
+    top: 220px;
+    position: absolute;
+    width: 130px;
+    height: 190px;
+  }
+  #ti_widget_image43 {
+    left: 740px;
+    top: 220px;
+    position: absolute;
+    width: 130px;
+    height: 190px;
+  }
+  #ti_widget_label29 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 240px;
+    top: 320px;
+    position: absolute;
+    width: 430px;
+    height: 40px;
+  }
+  #ti_widget_container18 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(12, 107, 219);
+  }
+  #ti_widget_image44 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image45 {
+    left: 29px;
+    top: 19px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label30 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label31 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 390px;
+    top: 230px;
+    position: absolute;
+  }
+  #ti_widget_image46 {
+    left: 100px;
+    top: 220px;
+    position: absolute;
+    width: 130px;
+    height: 190px;
+  }
+  #ti_widget_image47 {
+    left: 740px;
+    top: 220px;
+    position: absolute;
+    width: 130px;
+    height: 190px;
+  }
+  #ti_widget_label32 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 270px;
+    top: 370px;
+    position: absolute;
+    width: 430px;
+    height: 40px;
+  }
+  #ti_widget_container19 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(12, 107, 219);
+  }
+  #ti_widget_vtab8 {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_vtab9 {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_image48 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image49 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_vtab10 {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_label42 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 270px;
+    top: 300px;
+    position: absolute;
+  }
+  #ti_widget_image8 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image20 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_vtab1 {
+    background-color: white;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: initial;
+  }
+  #ti_widget_image21 {
+    left: 30px;
+    top: 20px;
+    position: absolute;
+    width: 140px;
+    height: 150px;
+  }
+  #ti_widget_label43 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 170px;
+    top: 70px;
+    position: absolute;
+  }
+  #ti_widget_label44 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 180px;
+    position: absolute;
+  }
+  #ti_widget_label45 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 240px;
+    position: absolute;
+  }
+  #ti_widget_label46 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 320px;
+    position: absolute;
+  }
+  #ti_widget_label47 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 360px;
+    position: absolute;
+  }
+  #ti_widget_label48 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 400px;
+    position: absolute;
+  }
+  #ti_widget_button11 {
+    left: 40px;
+    top: 440px;
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    border-radius: 100px;
+    padding: 10px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_container21 {
+    height: 380px;
+    width: 390px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 530px;
+    top: 130px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_button49 {
+    left: 90px;
+    top: 280px;
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: rgb(97, 98, 207);
+  }
+  #ti_widget_image50 {
+    left: 40px;
+    top: 90px;
+    position: absolute;
+    width: 180px;
+    height: 170px;
+  }
+  #ti_widget_image51 {
+    left: 160px;
+    top: 90px;
+    position: absolute;
+    width: 190px;
+    height: 170px;
+  }
+  #ti_widget_image52 {
+    left: 30px;
+    top: 20px;
+    position: absolute;
+    width: 140px;
+    height: 150px;
+  }
+  #ti_widget_label49 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 170px;
+    top: 70px;
+    position: absolute;
+  }
+  #ti_widget_label50 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 180px;
+    position: absolute;
+  }
+  #ti_widget_label51 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 240px;
+    position: absolute;
+  }
+  #ti_widget_label52 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 320px;
+    position: absolute;
+  }
+  #ti_widget_label53 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 360px;
+    position: absolute;
+  }
+  #ti_widget_label54 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 400px;
+    position: absolute;
+  }
+  #ti_widget_button50 {
+    left: 40px;
+    top: 440px;
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    border-radius: 100px;
+    padding: 10px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_container23 {
+    height: 380px;
+    width: 390px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 530px;
+    top: 130px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_button51 {
+    left: 90px;
+    top: 280px;
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: rgb(97, 98, 207);
+  }
+  #ti_widget_image53 {
+    left: 40px;
+    top: 90px;
+    position: absolute;
+    width: 180px;
+    height: 170px;
+  }
+  #ti_widget_image54 {
+    left: 160px;
+    top: 90px;
+    position: absolute;
+    width: 190px;
+    height: 170px;
+  }
+  #ti_widget_image55 {
+    left: 30px;
+    top: 20px;
+    position: absolute;
+    width: 140px;
+    height: 150px;
+  }
+  #ti_widget_label55 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 170px;
+    top: 70px;
+    position: absolute;
+  }
+  #ti_widget_label56 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 180px;
+    position: absolute;
+  }
+  #ti_widget_label57 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 240px;
+    position: absolute;
+  }
+  #ti_widget_label58 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 320px;
+    position: absolute;
+  }
+  #ti_widget_label59 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 360px;
+    position: absolute;
+  }
+  #ti_widget_label60 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 400px;
+    position: absolute;
+  }
+  #ti_widget_button52 {
+    left: 40px;
+    top: 440px;
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    border-radius: 100px;
+    padding: 10px;
+    background-color: rgb(79, 212, 196);
+  }
+  #ti_widget_container25 {
+    height: 380px;
+    width: 390px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 530px;
+    top: 130px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_button53 {
+    left: 90px;
+    top: 280px;
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: rgb(97, 98, 207);
+  }
+  #ti_widget_image56 {
+    left: 40px;
+    top: 90px;
+    position: absolute;
+    width: 180px;
+    height: 170px;
+  }
+  #ti_widget_image57 {
+    left: 160px;
+    top: 90px;
+    position: absolute;
+    width: 190px;
+    height: 170px;
+  }
+  #ti_widget_image58 {
+    left: 29px;
+    top: 19px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+  }
+  #ti_widget_label61 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 169px;
+    top: 69px;
+    position: absolute;
+  }
+  #ti_widget_label62 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 180px;
+    position: absolute;
+  }
+  #ti_widget_label63 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 240px;
+    position: absolute;
+    width: 430px;
+    height: 40px;
+  }
+  #ti_widget_container26 {
+    height: 580px;
+    width: 970px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(12, 107, 219);
+  }
+  #ti_widget_label64 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 300px;
+    position: absolute;
+  }
+  #ti_widget_label65 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 340px;
+    position: absolute;
+  }
+  #ti_widget_label66 {
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    white-space: nowrap;
+    left: 40px;
+    top: 380px;
+    position: absolute;
+  }
+  #ti_widget_image59 {
+    left: 10px;
+    top: 600px;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+  }
+  #ti_widget_image60 {
+    left: 860px;
+    top: 590px;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+  }
+  #ti_widget_container27 {
+    height: 190px;
+    width: 190px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 550px;
+    top: 80px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_container28 {
+    height: 240px;
+    width: 250px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 700px;
+    top: 240px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_container29 {
+    height: 140px;
+    width: 140px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 520px;
+    top: 280px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_container30 {
+    height: 140px;
+    width: 140px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 760px;
+    top: 80px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_container31 {
+    height: 120px;
+    width: 120px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    overflow: auto;
+    left: 600px;
+    top: 430px;
+    position: absolute;
+    border-radius: 200px;
+    background-color: rgb(234, 234, 234);
+  }
+  #ti_widget_button54 {
+    left: 860px;
+    top: 20px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button55 {
+    left: 860px;
+    top: 20px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button56 {
+    left: 862px;
+    top: 22px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button57 {
+    left: 862px;
+    top: 22px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button58 {
+    left: 862px;
+    top: 512px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button59 {
+    left: 862px;
+    top: 512px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button60 {
+    left: 861px;
+    top: 21px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button61 {
+    left: 860px;
+    top: 20px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button62 {
+    left: 862px;
+    top: 512px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button63 {
+    left: 861px;
+    top: 511px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button64 {
+    left: 861px;
+    top: 511px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_button65 {
+    left: 862px;
+    top: 22px;
+    position: absolute;
+    background-color: rgb(255, 218, 68);
+    width: 90px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+  }
+  #ti_widget_icon_button {
+    width: 40px;
+    height: 40px;
+    left: 560px;
+    top: 450px;
+    position: absolute;
+  }
+  #ti_widget_icon_button1 {
+    width: 40px;
+    height: 40px;
+    left: 870px;
+    top: 450px;
+    position: absolute;
+  }
+  #ti_widget_icon_button2 {
+    width: 40px;
+    height: 40px;
+    left: 250px;
+    top: 450px;
+    position: absolute;
+  }
+</style>
+
+<ti-widget-readme background-color="#ffffff" elevation="5" title-text="README.md" id="readmeViewer" pin class="_TI_"></ti-widget-readme>
+<ti-core-stylesheets id="ti_core_stylesheets" class="_TI_"></ti-core-stylesheets>
+
+<ti-widget-vtabcontainer vtab-height-in-px="-1" selected-index="0" selected-label="new tab" hide-vtab-labels ink-color="#f1f1f1" color-selected="#000" color-unselected="#888" color-disabled="#ccc" color-selection-bar="#fff" background-color-selected="#e0f8f8" background-color-hover="#dcdcec" auto-expand id="ti_widget_vtabcontainer" layout class="_TI_ x-scope ti-widget-vtabcontainer-0">
+    <ti-widget-vtab name="one" icon="settings" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab" class="_TI_ iron-selected" title>
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container1" title class="_TI_" pin>
+            <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+            <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container" title class="_TI_">
+                <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image3" class="_TI_"></ti-widget-image>
+                <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label" class="_TI_"></ti-widget-label>
+                <ti-widget-label label="Secure Space &" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label1" class="_TI_"></ti-widget-label>
+                <ti-widget-label label="Private Locker" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label2" class="_TI_"></ti-widget-label>
+                <ti-widget-label label="Lorem ipsum dolor sit amet, consectetur adipiscing" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label3" class="_TI_"></ti-widget-label>
+                <ti-widget-label label="elit, Sed eget libero feugiat, faucius libero id," text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label4" class="_TI_"></ti-widget-label>
+                <ti-widget-label label="scelerisque quam" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label5" class="_TI_"></ti-widget-label>
+                <ti-widget-button label="GET STARTED" button-type="default" raised visible bindable-trigger="37" id="ti_widget_button" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+                <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container2" title class="_TI_">
+                    <ti-widget-button label="LEARN MORE" button-type="default" raised visible bindable-trigger="24" id="ti_widget_button1" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+                    <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image" class="_TI_"></ti-widget-image>
+                    <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image4" class="_TI_"></ti-widget-image>
+                </ti-widget-container>
+            </ti-widget-container>
+        </ti-widget-container>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab2" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container4" title class="_TI_">
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container81" title class="_TI_" pin>
+                <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+                <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+            </ti-widget-container>
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image7" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label7" class="_TI_"></ti-widget-label>
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container9" title class="_TI_">
+                <ti-widget-button label="NEW USER" button-type="default" raised visible bindable-trigger="29" id="ti_widget_button2" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+                <ti-widget-image image-path="user_new_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image15" class="_TI_"></ti-widget-image>
+            </ti-widget-container>
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container10" title class="_TI_">
+                <ti-widget-button label="EXISTING USER" button-type="default" raised visible bindable-trigger="27" id="ti_widget_button3" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+                <ti-widget-image image-path="user_existing_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image9" class="_TI_"></ti-widget-image>
+            </ti-widget-container>
+            <ti-widget-button label="Home" button-type="default" raised visible bindable-trigger="39" id="ti_widget_button54" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        </ti-widget-container>
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image22" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image12" class="_TI_"></ti-widget-image>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab3" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container5" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image10" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label8" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="NEW USER" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label9" class="_TI_"></ti-widget-label>
+            <ti-widget-button label="LOCKER 1" button-type="default" raised visible bindable-trigger="38" id="ti_widget_button12" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image25" class="_TI_"></ti-widget-image>
+            <ti-widget-button label="LOCKER 2" button-type="default" raised visible bindable-trigger="20" id="ti_widget_button13" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image26" class="_TI_"></ti-widget-image>
+            <ti-widget-button label="LOCKER 3" button-type="default" raised visible bindable-trigger="20" id="ti_widget_button14" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image27" class="_TI_"></ti-widget-image>
+            <ti-widget-button label="Home" button-type="default" raised visible bindable-trigger="39" id="ti_widget_button55" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="Back" button-type="default" raised visible bindable-trigger="36" id="ti_widget_button58" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-icon-button active icon="fa:hand-pointer-o" icon-color="#000000" visible id="ti_widget_icon_button" title class="_TI_ x-scope ti-widget-icon-button-0"></ti-widget-icon-button>
+            <ti-widget-icon-button icon="fa:hand-pointer-o" icon-color="#0f0000" visible id="ti_widget_icon_button1" title class="_TI_ x-scope ti-widget-icon-button-1"></ti-widget-icon-button>
+            <ti-widget-icon-button pressed icon="fa:hand-pointer-o" icon-color="#020002" visible id="ti_widget_icon_button2" title class="_TI_ x-scope ti-widget-icon-button-2"></ti-widget-icon-button>
+        </ti-widget-container>
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image23" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image13" class="_TI_"></ti-widget-image>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab4" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container6" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image14" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label10" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="EXISTING USER" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label11" class="_TI_"></ti-widget-label>
+            <ti-widget-button label="LOCKER 3" button-type="default" raised visible bindable-trigger="39" id="ti_widget_button9" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image18" class="_TI_"></ti-widget-image>
+            <ti-widget-button label="LOCKER 2" button-type="default" raised visible bindable-trigger="17" id="ti_widget_button8" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image17" class="_TI_"></ti-widget-image>
+            <ti-widget-button label="LOCKER 1" button-type="default" raised visible bindable-trigger="12" id="ti_widget_button7" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image16" class="_TI_"></ti-widget-image>
+            <ti-widget-button label="Home" button-type="default" raised visible bindable-trigger="35" id="ti_widget_button61" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="Back" button-type="default" raised visible bindable-trigger="33" id="ti_widget_button64" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        </ti-widget-container>
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image24" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image28" class="_TI_"></ti-widget-image>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab6" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image11" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image29" class="_TI_"></ti-widget-image>
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container12" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image19" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label12" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="SET PASSCODE FOR LOCKER 1" text-align="center" font-size="custom" custom-font-size="40px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label13" class="_TI_"></ti-widget-label>
+            <ti-widget-textbox text-align="center" font-size="xx-large" custom-font-size="20px" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox4" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox6" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox7" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox5" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-button label="1" button-type="default" raised visible bindable-trigger="48" id="ti_widget_button23" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="2" button-type="default" raised visible bindable-trigger="36" id="ti_widget_button24" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="3" button-type="default" raised visible bindable-trigger="26" id="ti_widget_button25" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="4" button-type="default" raised visible bindable-trigger="22" id="ti_widget_button26" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="5" button-type="default" raised visible bindable-trigger="22" id="ti_widget_button29" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="6" button-type="default" raised visible bindable-trigger="22" id="ti_widget_button30" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="7" button-type="default" raised visible bindable-trigger="27" id="ti_widget_button27" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="CLEAR" button-type="default" raised visible bindable-trigger="33" id="ti_widget_button32" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="8" button-type="default" raised visible bindable-trigger="23" id="ti_widget_button28" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="0" button-type="default" raised visible bindable-trigger="29" id="ti_widget_button33" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="9" button-type="default" raised visible bindable-trigger="21" id="ti_widget_button31" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="ENTER" button-type="default" raised visible bindable-trigger="37" id="ti_widget_button34" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="Home" button-type="default" raised visible bindable-trigger="34" id="ti_widget_button60" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="Back" button-type="default" raised visible bindable-trigger="33" id="ti_widget_button63" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        </ti-widget-container>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab5" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image31" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image32" class="_TI_"></ti-widget-image>
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container11" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image30" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label16" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="CONFIRM PASSCODE FOR LOCKER 1" text-align="center" font-size="custom" custom-font-size="40px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label17" class="_TI_"></ti-widget-label>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox1" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox2" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox3" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox8" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-button label="1" button-type="default" raised visible bindable-trigger="42" id="ti_widget_button4" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="2" button-type="default" raised visible bindable-trigger="34" id="ti_widget_button5" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="3" button-type="default" raised visible bindable-trigger="26" id="ti_widget_button6" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="4" button-type="default" raised visible bindable-trigger="23" id="ti_widget_button10" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="5" button-type="default" raised visible bindable-trigger="22" id="ti_widget_button15" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="6" button-type="default" raised visible bindable-trigger="24" id="ti_widget_button16" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="7" button-type="default" raised visible bindable-trigger="29" id="ti_widget_button17" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="CLEAR" button-type="default" raised visible bindable-trigger="31" id="ti_widget_button18" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="8" button-type="default" raised visible bindable-trigger="23" id="ti_widget_button19" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="0" button-type="default" raised visible bindable-trigger="29" id="ti_widget_button20" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="9" button-type="default" raised visible bindable-trigger="23" id="ti_widget_button21" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="ENTER" button-type="default" raised visible bindable-trigger="32" id="ti_widget_button22" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="Home" button-type="default" raised visible bindable-trigger="33" id="ti_widget_button57" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="Back" button-type="default" raised visible bindable-trigger="35" id="ti_widget_button59" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        </ti-widget-container>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab7" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image6" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image38" class="_TI_"></ti-widget-image>
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container3" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image5" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label25" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="ENTER PASSCODE FOR LOCKER 3" text-align="center" font-size="custom" custom-font-size="40px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label26" class="_TI_"></ti-widget-label>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox9" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox10" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox11" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-textbox text-align="center" font-size="xx-large" font-style="normal" font-weight="normal" text-decoration="none" visible id="ti_widget_textbox12" class="_TI_ x-scope ti-widget-textbox-0"></ti-widget-textbox>
+            <ti-widget-button label="1" button-type="default" raised visible bindable-trigger="45" id="ti_widget_button37" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="2" button-type="default" raised visible bindable-trigger="35" id="ti_widget_button38" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="3" button-type="default" raised visible bindable-trigger="27" id="ti_widget_button39" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="4" button-type="default" raised visible bindable-trigger="23" id="ti_widget_button40" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="5" button-type="default" raised visible bindable-trigger="23" id="ti_widget_button41" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="6" button-type="default" raised visible bindable-trigger="22" id="ti_widget_button42" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="7" button-type="default" raised visible bindable-trigger="27" id="ti_widget_button43" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="CLEAR" button-type="default" raised visible bindable-trigger="32" id="ti_widget_button44" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="8" button-type="default" raised visible bindable-trigger="23" id="ti_widget_button45" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="0" button-type="default" raised visible bindable-trigger="29" id="ti_widget_button46" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="9" button-type="default" raised visible bindable-trigger="21" id="ti_widget_button47" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="ENTER" button-type="default" raised visible bindable-trigger="30" id="ti_widget_button48" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="Home" button-type="default" raised visible bindable-trigger="34" id="ti_widget_button56" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-button label="Back" button-type="default" raised visible bindable-trigger="34" id="ti_widget_button62" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        </ti-widget-container>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab8" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container17" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image36" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label22" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="YOU ARE SET" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label23" class="_TI_"></ti-widget-label>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image37" class="_TI_"></ti-widget-image>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image39" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="LOCKER  1 IS READY TO USE!" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label24" class="_TI_"></ti-widget-label>
+        </ti-widget-container>
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image44" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image40" class="_TI_"></ti-widget-image>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab9" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container18" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image41" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label27" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="PASSWORD WRONG" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label28" class="_TI_"></ti-widget-label>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image42" class="_TI_"></ti-widget-image>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image43" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="PLEASE TRY AGAIN OR CONTACT SUPPORT" text-align="left" font-size="custom" custom-font-size="25px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label29" class="_TI_"></ti-widget-label>
+        </ti-widget-container>
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image48" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image49" class="_TI_"></ti-widget-image>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab10" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container19" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image45" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label30" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="THANK YOU" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label31" class="_TI_"></ti-widget-label>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image46" class="_TI_"></ti-widget-image>
+            <ti-widget-image image-path="locker_icon_1.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image47" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="MAKE SURE TO EMPTY YOUR LOCKER" text-align="left" font-size="custom" custom-font-size="25px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label32" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="FOR USING SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label42" class="_TI_"></ti-widget-label>
+        </ti-widget-container>
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image8" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image20" class="_TI_"></ti-widget-image>
+    </ti-widget-vtab>
+    <ti-widget-vtab name="new tab" icon="build" icon-style="width:30px;height:30px;padding:5px;" visible font-size="inherit" font-style="normal" font-weight="normal" text-align="left" text-decoration="none" id="ti_widget_vtab1" icon-name="build" autoscroll title class="_TI_">
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container26" title class="_TI_">
+            <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image58" class="_TI_"></ti-widget-image>
+            <ti-widget-label label="SMART LOCKER" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label61" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="ABOUT US" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label62" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="LOCKER   IS READY TO USE!" text-align="left" font-size="custom" custom-font-size="25px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label63" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="Lorem ipsum dolor sit amet, consectetur adipiscing" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label64" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="Lorem ipsum dolor sit amet, consectetur adipiscing" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label65" class="_TI_"></ti-widget-label>
+            <ti-widget-label label="Lorem ipsum dolor sit amet, consectetur adipiscing" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label66" class="_TI_"></ti-widget-label>
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container27" title class="_TI_"></ti-widget-container>
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container28" title class="_TI_"></ti-widget-container>
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container29" title class="_TI_"></ti-widget-container>
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container30" title class="_TI_"></ti-widget-container>
+            <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container31" title class="_TI_"></ti-widget-container>
+            <ti-widget-button label="Home" button-type="default" raised visible bindable-trigger="35" id="ti_widget_button65" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        </ti-widget-container>
+        <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image59" class="_TI_"></ti-widget-image>
+        <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image60" class="_TI_"></ti-widget-image>
+    </ti-widget-vtab>
+</ti-widget-vtabcontainer>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container41" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container51" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container61" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container71" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container141" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container151" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container131" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+    <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container" title class="_TI_">
+        <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image33" class="_TI_"></ti-widget-image>
+        <ti-widget-label label="SMART LOCKER 2.0" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label14" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Secure Space &" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label15" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Private Locker" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label18" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Lorem ipsum dolor sit amet, consectetur adipiscing" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label19" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="elit, Sed eget libero feugiat, faucius libero id," text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label20" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="scelerisque quam" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label21" class="_TI_"></ti-widget-label>
+        <ti-widget-button label="GET STARTED" button-type="default" raised visible bindable-trigger="26" id="ti_widget_button35" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container16" title class="_TI_">
+            <ti-widget-button label="LEARN MORE" button-type="default" raised visible bindable-trigger="15" id="ti_widget_button36" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image34" class="_TI_"></ti-widget-image>
+            <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image35" class="_TI_"></ti-widget-image>
+        </ti-widget-container>
+    </ti-widget-container>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container201" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+    <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container" title class="_TI_">
+        <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image21" class="_TI_"></ti-widget-image>
+        <ti-widget-label label="SMART LOCKER 2.0" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label43" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Secure Space &" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label44" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Private Locker" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label45" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Lorem ipsum dolor sit amet, consectetur adipiscing" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label46" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="elit, Sed eget libero feugiat, faucius libero id," text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label47" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="scelerisque quam" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label48" class="_TI_"></ti-widget-label>
+        <ti-widget-button label="GET STARTED" button-type="default" raised visible bindable-trigger="26" id="ti_widget_button11" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container21" title class="_TI_">
+            <ti-widget-button label="LEARN MORE" button-type="default" raised visible bindable-trigger="16" id="ti_widget_button49" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image50" class="_TI_"></ti-widget-image>
+            <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image51" class="_TI_"></ti-widget-image>
+        </ti-widget-container>
+    </ti-widget-container>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container221" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+    <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container" title class="_TI_">
+        <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image52" class="_TI_"></ti-widget-image>
+        <ti-widget-label label="SMART LOCKER 2.0" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label49" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Secure Space &" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label50" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Private Locker" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label51" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Lorem ipsum dolor sit amet, consectetur adipiscing" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label52" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="elit, Sed eget libero feugiat, faucius libero id," text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label53" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="scelerisque quam" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label54" class="_TI_"></ti-widget-label>
+        <ti-widget-button label="GET STARTED" button-type="default" raised visible bindable-trigger="26" id="ti_widget_button50" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container23" title class="_TI_">
+            <ti-widget-button label="LEARN MORE" button-type="default" raised visible bindable-trigger="16" id="ti_widget_button51" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image53" class="_TI_"></ti-widget-image>
+            <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image54" class="_TI_"></ti-widget-image>
+        </ti-widget-container>
+    </ti-widget-container>
+</ti-widget-container>
+
+<ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container241" title class="_TI_" pin>
+    <ti-widget-image image-path="epics_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image2" class="_TI_"></ti-widget-image>
+    <ti-widget-image image-path="sjsu_logo.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image1" class="_TI_"></ti-widget-image>
+    <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container" title class="_TI_">
+        <ti-widget-image image-path="smartlocker_logo_new_2.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image55" class="_TI_"></ti-widget-image>
+        <ti-widget-label label="SMART LOCKER 2.0" text-align="left" font-size="custom" custom-font-size="35px" font-color="#ffffff" font-style="italic" font-weight="bold" text-decoration="none" visible id="ti_widget_label55" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Secure Space &" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label56" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Private Locker" text-align="left" font-size="custom" custom-font-size="55px" font-color="#ffffff" font-style="normal" font-weight="bold" text-decoration="none" visible id="ti_widget_label57" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="Lorem ipsum dolor sit amet, consectetur adipiscing" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label58" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="elit, Sed eget libero feugiat, faucius libero id," text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label59" class="_TI_"></ti-widget-label>
+        <ti-widget-label label="scelerisque quam" text-align="left" font-size="custom" custom-font-size="20px" font-color="#ffffff" font-style="normal" font-weight="lighter" text-decoration="none" visible id="ti_widget_label60" class="_TI_"></ti-widget-label>
+        <ti-widget-button label="GET STARTED" button-type="default" raised visible bindable-trigger="26" id="ti_widget_button52" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+        <ti-widget-container font-size="inherit" auto-scroll font-style="normal" font-weight="normal" text-align="left" text-decoration="none" visible id="ti_widget_container25" title class="_TI_">
+            <ti-widget-button label="LEARN MORE" button-type="default" raised visible bindable-trigger="16" id="ti_widget_button53" animated title elevation="1" class="_TI_ x-scope ti-widget-button-0"></ti-widget-button>
+            <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image56" class="_TI_"></ti-widget-image>
+            <ti-widget-image image-path="locker_icon.png" lock-aspect-ratio hover-effect="no" visible id="ti_widget_image57" class="_TI_"></ti-widget-image>
+        </ti-widget-container>
+    </ti-widget-container>
+</ti-widget-container>
+
+<ti-core-programloader load-address="0" id="my_programloader" hidden is-auto-download-enabled device-name="CC3220SF" connection-id="TIXDS110_Connection" target-program="empty_CC3220SF_LAUNCHXL_tirtos_gcc (3).out" class="_TI_"></ti-core-programloader>
+
+<ti-transport-xds id="my_transport" hidden class="_TI_">
+    <ti-model-program id="my_model" hidden programloader-id="my_programloader" class="_TI_"></ti-model-program>
+</ti-transport-xds>
+
+</template>
+ 
+<!-- ------------------------------------------------------------------------------------- -->
+
+<script>
+    // Do not edit this file - it is automatically generated.  Please edit index.js
+	addEventListener('WebComponentsReady', function () {
+        var loadDiv = document.querySelector("#loadDiv")
+        if (loadDiv) {
+			loadDiv.parentNode.removeChild(loadDiv);
+        }
+	});
+</script>
+</body>
+</html>

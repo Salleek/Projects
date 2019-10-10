@@ -1,0 +1,574 @@
+{
+    "widgetBindings": [
+        {
+            "widgetId": "ti_widget_button",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.start_button"
+        },
+        {
+            "widgetId": "ti_widget_button1",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.learn_button"
+        },
+        {
+            "widgetId": "ti_widget_button2",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.new_button"
+        },
+        {
+            "widgetId": "ti_widget_button3",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.existing_button"
+        },
+        {
+            "widgetId": "ti_widget_button12",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.locker_1"
+        },
+        {
+            "widgetId": "ti_widget_button13",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.locker_2"
+        },
+        {
+            "widgetId": "ti_widget_button14",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.locker_3"
+        },
+        {
+            "widgetId": "ti_widget_button12",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.locker1_lock"
+        },
+        {
+            "widgetId": "ti_widget_button13",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.locker2_lock"
+        },
+        {
+            "widgetId": "ti_widget_button14",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.locker3_lock"
+        },
+        {
+            "widgetId": "ti_widget_button7",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.open_locker_1"
+        },
+        {
+            "widgetId": "ti_widget_button8",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.open_locker_2"
+        },
+        {
+            "widgetId": "ti_widget_button9",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.open_locker_3"
+        },
+        {
+            "widgetId": "ti_widget_button9",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.locker3_occ"
+        },
+        {
+            "widgetId": "ti_widget_button8",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.locker2_occ"
+        },
+        {
+            "widgetId": "ti_widget_button7",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.locker1_occ"
+        },
+        {
+            "widgetId": "ti_widget_button23",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_1"
+        },
+        {
+            "widgetId": "ti_widget_button24",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_2"
+        },
+        {
+            "widgetId": "ti_widget_button25",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_3"
+        },
+        {
+            "widgetId": "ti_widget_button26",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_4"
+        },
+        {
+            "widgetId": "ti_widget_button29",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_5"
+        },
+        {
+            "widgetId": "ti_widget_button30",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_6"
+        },
+        {
+            "widgetId": "ti_widget_button27",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_7"
+        },
+        {
+            "widgetId": "ti_widget_button28",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_8"
+        },
+        {
+            "widgetId": "ti_widget_button31",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_9"
+        },
+        {
+            "widgetId": "ti_widget_button33",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_0"
+        },
+        {
+            "widgetId": "ti_widget_button32",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_reset"
+        },
+        {
+            "widgetId": "ti_widget_button34",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_confirm"
+        },
+        {
+            "widgetId": "ti_widget_button23",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button24",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button25",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button26",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button29",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button30",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button27",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button28",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button31",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button33",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button4",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button5",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button6",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button10",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button15",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button16",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button17",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button19",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button21",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button20",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button4",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_1"
+        },
+        {
+            "widgetId": "ti_widget_button5",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_2"
+        },
+        {
+            "widgetId": "ti_widget_button6",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_3"
+        },
+        {
+            "widgetId": "ti_widget_button10",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_4"
+        },
+        {
+            "widgetId": "ti_widget_button15",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_5"
+        },
+        {
+            "widgetId": "ti_widget_button16",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_6"
+        },
+        {
+            "widgetId": "ti_widget_button17",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_7"
+        },
+        {
+            "widgetId": "ti_widget_button19",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_8"
+        },
+        {
+            "widgetId": "ti_widget_button21",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_9"
+        },
+        {
+            "widgetId": "ti_widget_button20",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_0"
+        },
+        {
+            "widgetId": "ti_widget_button18",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_reset"
+        },
+        {
+            "widgetId": "ti_widget_button22",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_final"
+        },
+        {
+            "widgetId": "ti_widget_button37",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_1"
+        },
+        {
+            "widgetId": "ti_widget_button38",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_2"
+        },
+        {
+            "widgetId": "ti_widget_button39",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_3"
+        },
+        {
+            "widgetId": "ti_widget_button40",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_4"
+        },
+        {
+            "widgetId": "ti_widget_button41",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_5"
+        },
+        {
+            "widgetId": "ti_widget_button42",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_6"
+        },
+        {
+            "widgetId": "ti_widget_button43",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_7"
+        },
+        {
+            "widgetId": "ti_widget_button45",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_8"
+        },
+        {
+            "widgetId": "ti_widget_button47",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_9"
+        },
+        {
+            "widgetId": "ti_widget_button46",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_0"
+        },
+        {
+            "widgetId": "ti_widget_button48",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_final"
+        },
+        {
+            "widgetId": "ti_widget_button44",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.keypad_reset"
+        },
+        {
+            "widgetId": "ti_widget_button37",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button38",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button39",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button40",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button41",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button42",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button43",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button45",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button47",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button46",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.pass_full"
+        },
+        {
+            "widgetId": "ti_widget_button54",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.home_button"
+        },
+        {
+            "widgetId": "ti_widget_button65",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.home_button"
+        },
+        {
+            "widgetId": "ti_widget_button56",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.home_button"
+        },
+        {
+            "widgetId": "ti_widget_button57",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.home_button"
+        },
+        {
+            "widgetId": "ti_widget_button60",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.home_button"
+        },
+        {
+            "widgetId": "ti_widget_button61",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.home_button"
+        },
+        {
+            "widgetId": "ti_widget_button55",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.home_button"
+        },
+        {
+            "widgetId": "ti_widget_button58",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.back_to_select"
+        },
+        {
+            "widgetId": "ti_widget_button64",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.back_to_select"
+        },
+        {
+            "widgetId": "ti_widget_button63",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.back_to_locker"
+        },
+        {
+            "widgetId": "ti_widget_button59",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.back_to_code"
+        },
+        {
+            "widgetId": "ti_widget_button62",
+            "propertyName": "bindableTrigger",
+            "serverBindName": "widget.my_model.back_to_locker"
+        },
+        {
+            "widgetId": "ti_widget_label13",
+            "propertyName": "label",
+            "serverBindName": "widget.my_model.msg"
+        },
+        {
+            "widgetId": "ti_widget_label17",
+            "propertyName": "label",
+            "serverBindName": "widget.my_model.msg"
+        },
+        {
+            "widgetId": "ti_widget_label26",
+            "propertyName": "label",
+            "serverBindName": "widget.my_model.msg"
+        },
+        {
+            "widgetId": "ti_widget_button34",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.enter_ready"
+        },
+        {
+            "widgetId": "ti_widget_button22",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.enter_ready"
+        },
+        {
+            "widgetId": "ti_widget_button48",
+            "propertyName": "disabled",
+            "serverBindName": "widget.my_model.enter_ready"
+        },
+        {
+            "widgetId": "ti_widget_textbox4",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[0]"
+        },
+        {
+            "widgetId": "ti_widget_textbox6",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[1]"
+        },
+        {
+            "widgetId": "ti_widget_textbox7",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[2]"
+        },
+        {
+            "widgetId": "ti_widget_textbox5",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[3]"
+        },
+        {
+            "widgetId": "ti_widget_textbox1",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[0]"
+        },
+        {
+            "widgetId": "ti_widget_textbox2",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[1]"
+        },
+        {
+            "widgetId": "ti_widget_textbox3",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[2]"
+        },
+        {
+            "widgetId": "ti_widget_textbox8",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[3]"
+        },
+        {
+            "widgetId": "ti_widget_textbox9",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[0]"
+        },
+        {
+            "widgetId": "ti_widget_textbox10",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[1]"
+        },
+        {
+            "widgetId": "ti_widget_textbox11",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[2]"
+        },
+        {
+            "widgetId": "ti_widget_textbox12",
+            "propertyName": "value",
+            "serverBindName": "widget.my_model.display[3]"
+        },
+        {
+            "widgetId": "ti_widget_vtabcontainer",
+            "propertyName": "selectedIndex",
+            "serverBindName": "widget.my_model.current"
+        },
+        {
+            "widgetId": "ti_widget_label24",
+            "propertyName": "label",
+            "serverBindName": "widget.my_model.msg"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "template": "Application",
+    "description": "Basic application with a menu bar and status bar",
+    "version": "1.0.15",
+    "projectName": "SmartLocker_UI_2",
+    "applicationName": "SmartLocker_UI_2",
+    "applicationIcon": "",
+    "windowIcon": "",
+    "splashImage": "",
+    "tiBrandingEnabled": false,
+    "disableAutoConnect": false,
+    "vendorName": "",
+    "technologyName": "",
+    "nosplash": true
+}
